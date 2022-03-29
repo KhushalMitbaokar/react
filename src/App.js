@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, FlatList, Text, View } from 'react-native';
+import { ActivityIndicator, FlatList, Text, View, ImageBackground } from 'react-native';
 
-function App () {
+
+function App ()  {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
@@ -22,16 +23,21 @@ function App () {
   }, []);
 
   return (
-    <View style={{ flex: 1, padding: 24 }}>
+
+    <View style={{ padding: 30 }}>
+    <h2>Here's the data in tabular form we get from spring boot api :</h2>
+    <table  height="250" border="0" cellpadding="0" cellspacing="15" >
       {isLoading ? <ActivityIndicator/> : (
         <FlatList
           data={data}
           keyExtractor={({ id }, index) => id}
           renderItem={({ item }) => (
-            <Text>{item.id}, {item.discription}, {item.name}</Text>
+            <Text><tr><td> {item.id}</td><td>{item.name}</td><td>{item.discription}</td></tr></Text>
+
           )}
         />
       )}
+      </table>
     </View>
   );
 };
