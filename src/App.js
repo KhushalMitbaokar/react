@@ -27,6 +27,11 @@ function App ()  {
     <View style={{ padding: 30 }}>
     <h2>Here's the data in tabular form we get from spring boot api :</h2>
     <table  height="250" border="0" cellpadding="0" cellspacing="15" >
+    <tr>
+      <th>Id</th>
+      <th>Car Name</th>
+      <th>Description</th>
+    </tr>
       {isLoading ? <ActivityIndicator/> : (
         <FlatList
           data={data}
